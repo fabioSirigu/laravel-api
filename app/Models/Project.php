@@ -29,10 +29,10 @@ class Project extends Model
     {
         return $this->belongsTo(Type::class);
     }
-    /* 
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    */
+    /** 
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
 
     public function technologies(): BelongsToMany
     {
