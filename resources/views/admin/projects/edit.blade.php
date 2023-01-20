@@ -12,6 +12,8 @@
             <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Add title.." aria-describedby="titleHelper" value="{{old('title', $project->title)}}">>
             <small id="titleHelper" class="text-muted">Add a new Title</small>
       </div>
+      <!-- ################# -->
+
       <div class="mb-3 d-flex gap-4">
             <img width="100" class="bg-dark" src="{{ asset('storage/' . $project->cover_image)}}" alt="">
             <div>
@@ -20,6 +22,7 @@
                   <small id="coverImageHelper" class="text-muted">Replace the project cover image</small>
             </div>
       </div>
+      <!-- ################# -->
       <div class="mb-3">
             <label for="type_id" class="form-label">Types</label>
             <select class="form-select form-select-lg @error('type_id') 'is-invalid' @enderror" name="type_id" id="type_id">
@@ -35,6 +38,30 @@
 
             </select>
       </div>
+      <!-- ################# -->
+      <div class="mb-3">
+            <label for="technologies" class="form-label">City</label>
+            <select multiple class="form-select form-select-lg" name="technologies[]" id="technologies">
+                  <option value="" disabled>Select one</option>
+
+                  @forelse ($technologies as $technology)
+                  @if ($errors->any())
+                  <option value="{{ $technology->id }}" {{ in_array($technology->id, old('technologies', [])) ? 'selected' : '' }}>
+                        {{ $technology->name }}
+                  </option>
+                  @else
+                  <option value="{{ $technology->id }}" {{ $project->technologies->contains($technology->id) ? 'selected' : '' }}>
+                        {{ $technology->name }}
+                  </option>
+                  @endif
+                  @empty
+                  <h6>Sorry.No technologies inside the database yet.</h6>
+                  @endforelse
+            </select>
+
+      </div>
+      <!-- ################# -->
+
       <div class="mb-3">
             <label for="description" class="form-label">Description</label>
             <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" rows="3">{{old('description', $project->description)}}</textarea>

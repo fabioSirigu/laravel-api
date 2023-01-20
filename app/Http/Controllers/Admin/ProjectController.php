@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
@@ -30,8 +31,9 @@ class ProjectController extends Controller
      */
     public function create(Project $project)
     {
+        $technologies = Technology::all();
         $types = Type::all();
-        return view('admin.projects.create', compact('project', 'types'));
+        return view('admin.projects.create', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -52,6 +54,9 @@ class ProjectController extends Controller
         $val_data['slug'] =  $slug_data;
         $project = Project::create($val_data);
 
+        if ($request->has('technologies')) {
+            $project->technologies()->attach($val_data['technologies']);
+        }
         //dd($val_data);
         // Save all data
         // Project::create($val_data);
@@ -78,8 +83,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        $technologies = Technology::all();
         $types = Type::all();
-        return view('admin.projects.edit', compact('project', 'types'));
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -104,6 +110,11 @@ class ProjectController extends Controller
         $val_data['slug'] =  $slug_data;
         //$project = Project::create($val_data);
         $project->update($val_data);
+        if ($request->has('technologies')) {
+            $project->technologies()->sync($val_data['technologies']);
+        } else {
+            $project->technologies()->sync([]);
+        }
 
         // return redirect()->route('admin.projects.index');
         return to_route('admin.projects.index')->with('message', "The project: $project->title update successfully");
