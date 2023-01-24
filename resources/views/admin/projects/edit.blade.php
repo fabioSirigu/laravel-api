@@ -13,7 +13,12 @@
             <small id="titleHelper" class="text-muted">Add a new Title</small>
       </div>
       <!-- ################# -->
-
+      <div class="form-group">
+            <label for="gitHubUrl">Git Hub Url</label>
+            <input type="text" name="gitHubUrl" id="gitHubUrl" class="form-control @error('gitHubUrl') is-invalid @enderror" placeholder="Add gitHubUrl.." aria-describedby="gitHubUrlHelper" value="{{old('gitHubUrl', $project->gitHubUrl)}}">>
+            <small id="gitHubUrlHelper" class="text-muted">Add a new Git Hub Url</small>
+      </div>
+      <!-- ################# -->
       <div class="mb-3 d-flex gap-4">
             <img width="100" class="bg-dark" src="{{ asset('storage/' . $project->cover_image)}}" alt="">
             <div>

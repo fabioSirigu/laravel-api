@@ -33,6 +33,7 @@ class UpdateProjectRequest extends FormRequest
                 'max:100'
             ],
             'cover_image' => 'nullable|image|max:300',
+            'gitHubUrl' => 'nullable|unique:projects,gitHubUrl|max:300',
             'type_id' => 'nullable|exists:types,id',
             'technologies' => 'exists:technologies,id',
             'description' => 'nullable|max:255',
@@ -47,7 +48,7 @@ class UpdateProjectRequest extends FormRequest
             'title.min' => 'Il titolo deve avere minimo :min caratteri',
             'title.max' => 'Il titolo deve avere massimo :max caratteri',
             'description.max' => "L'immagine deve avere massimo :max caratteri",
-            'date.max' => 'Il prezzo deve avere massimo :max caratteri'
+            'date.max' => 'La data deve avere massimo :max caratteri'
         ];
     }
 }

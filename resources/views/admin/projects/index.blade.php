@@ -16,7 +16,6 @@
                         <th>ID</th>
                         <th>Image</th>
                         <th>Title</th>
-                        <th>Slug</th>
                         <th>Date Create</th>
                         <th>Actions</th>
                   </tr>
@@ -35,7 +34,6 @@
 
                         </td>
                         <td>{{$project->title}}</td>
-                        <td>{{$project->slug}}</td>
                         <td>{{$project->date}}</td>
                         <td>
                               <a href='{{route("admin.projects.show", $project->slug)}}' class="btn btn-primary view">
