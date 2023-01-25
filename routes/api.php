@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Project;
 use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\LeadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('/projects', [ProjectController::class, 'index']);
 
 // add a route for a single project
 Route::get('/projects/{project:slug}', [ProjectController::class, 'show']);
+
+Route::post('/contacts', [LeadController::class, 'store']);
