@@ -25,11 +25,11 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:projects,title|min:5|max:100',
-            'cover_image' => 'nullable|image|max:300',
+            'cover_image' => 'nullable|image|max:5000',
             'gitHubUrl' => 'nullable|unique:projects,gitHubUrl|max:300',
             'type_id' => 'nullable|exists:types,id',
             'technologies' => 'exists:technologies,id',
-            'description' => 'nullable|max:255',
+            'description' => 'nullable',
             'date' => 'nullable|max:10'
         ];
     }
@@ -40,7 +40,6 @@ class StoreProjectRequest extends FormRequest
             'title.required' => 'Il titolo é obbligatorio',
             'title.min' => 'Il titolo deve avere minimo :min caratteri',
             'title.max' => 'Il titolo deve avere massimo :max caratteri',
-            'description.max' => "L'immagine deve avere massimo :max caratteri",
             'date.max' => 'Il prezzo deve avere massimo :max caratteri'
         ];
     }
