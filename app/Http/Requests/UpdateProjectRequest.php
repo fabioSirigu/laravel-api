@@ -33,7 +33,7 @@ class UpdateProjectRequest extends FormRequest
                 'max:100'
             ],
             'cover_image' => 'nullable|image|max:5000',
-            'gitHubUrl' => 'nullable|unique:projects,gitHubUrl|max:300',
+            'gitHubUrl' => 'nullable|max:300',
             'type_id' => 'nullable|exists:types,id',
             'technologies' => 'exists:technologies,id',
             'description' => 'nullable',
