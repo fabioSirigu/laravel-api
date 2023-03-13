@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\LeadController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TypeController;
@@ -32,6 +33,8 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('types', TypeController::class)->parameters([
         'types' => 'type:slug'
     ]);
+
+    Route::resource('leads', LeadController::class)->except(['create', 'edit', 'update']);
 });
 
 require __DIR__ . '/auth.php';
