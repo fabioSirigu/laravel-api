@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1>Projects by NazOne</h1>
+<h1>Messages</h1>
 @include('partials.message')
 <div class="table-responsive pt-5">
       <table class="table table-striped
@@ -9,7 +9,7 @@
       table-borderless
       table-primary
       align-middle">
-            <thead class="table-light">
+            <thead class="table-dark">
 
                   <tr>
                         <th>Name</th>
@@ -20,7 +20,7 @@
             </thead>
             <tbody class="table-group-divider">
                   @forelse ($leads as $lead)
-                  <tr class="table-primary">
+                  <tr class="table-dark">
                         <td scope="row">{{$lead->name}}</td>
                         <td>{{$lead->email}}</td>
                         <td>{{$lead->created_at}}</td>

@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1>Projects by NazOne</h1>
 @include('partials.message')
 <a href="{{route('admin.projects.create')}}" class="btn btn-primary my-3" role="button">Add Project</a>
 <div class="table-responsive pt-5">
@@ -10,7 +9,7 @@
       table-borderless
       table-primary
       align-middle">
-            <thead class="table-light">
+            <thead class="table-dark">
 
                   <tr>
                         <th>ID</th>
@@ -22,7 +21,7 @@
             </thead>
             <tbody class="table-group-divider">
                   @forelse ($projects as $project)
-                  <tr class="table-primary">
+                  <tr class="table-dark">
                         <td scope="row">{{$project->id}}</td>
                         <td>
 

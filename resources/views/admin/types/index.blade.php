@@ -10,7 +10,7 @@
       table-borderless
       table-primary
       align-middle">
-            <thead class="table-light">
+            <thead class="table-dark">
 
                   <tr>
                         <th>ID</th>
@@ -20,7 +20,7 @@
             </thead>
             <tbody class="table-group-divider">
                   @forelse ($types as $type)
-                  <tr class="table-primary">
+                  <tr class="table-dark">
                         <td scope="row">{{$type->id}}</td>
                         <td>{{$type->name}}</td>
                         <td>

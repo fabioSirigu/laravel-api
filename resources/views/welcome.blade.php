@@ -8,8 +8,9 @@
     <div class="container py-2">
         <h4>Login for look all projects!</h4>
         <button class="btn btn-primary mb-3">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            <a class="nav-link" href="{{ route('admin.projects.index') }}">Dashboard</a>
         </button>
+
         <h6 class="mt-5">Powered by <img src="{{ Vite::asset('resources/img/logoNazOne.png')}}" alt="" class="logo_nazone"></h6>
     </div>
 </div>
