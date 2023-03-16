@@ -2,10 +2,10 @@
       <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
             <div class="modal-content">
                   <div class="modal-header">
-                        <h5 class="modal-title" id="modalTitleId-{{$project->slug}}">Delete project</h5>
+                        <h5 class="modal-title text-dark" id="modalTitleId-{{$project->slug}}">Delete project</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body text-dark">
                         Stai per cancellare definitivamente un progetto, sei sicuro?
                   </div>
                   <div class="modal-footer">

@@ -11,7 +11,7 @@
             <a class="nav-link" href="{{ route('admin.projects.index') }}">Dashboard</a>
         </button>
 
-        <h6 class="mt-5">Powered by <img src="{{ Vite::asset('resources/img/logoNazOne.png')}}" alt="" class="logo_nazone"></h6>
+        <h6 class="mt-5">Powered by <img src="./img/logoNazOne.png" alt="" class="logo_nazone"></h6>
     </div>
 </div>
 @endsection
